@@ -18,10 +18,10 @@
 				<td class="col-sm-3">
 					<input type="number" ng-model="product.quantity">
 				</td>
-				<td><button ng-click="ctrl.updateProduct(product)">update</button></td>
+				<td><button class="btn btn-sm" ng-click="ctrl.updateProduct(product)">update</button></td>
 			</tr>
 		</table>
-	<button class="btn btn-default active" ui-sref="inventory">Manage Inventory</button>
+	<button class="btn btn-default" ui-sref="inventory">Manage Inventory</button>
 	<h1>View Orders</h1>
 	<button ng-click="ctrl.order_status=true" class="btn btn-default  active">Pending Orders</button>
 	<button ng-click="ctrl.order_status=false" class="btn btn-default active">Completed Orders</button>
