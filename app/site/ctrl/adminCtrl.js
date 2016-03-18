@@ -35,6 +35,16 @@ function AdminCtrl($state,productSrv, orderSrv, $scope,$stateParams, api) {
 	}, function(newVal, oldVal) {
 		ctrl.products = newVal;
 	});
+
+    $scope.$watch(function(){
+        return productSrv.products;
+    }, function (newValue) {
+        if(productSrv.products.length > 0){
+            ctrl.products = productSrv.products;
+            ctrl.is_products = true;
+        }
+    });
+
 }
 
 AdminCtrl.prototype.updateProduct = function(product){
@@ -97,5 +107,10 @@ AdminCtrl.prototype.deleteOrder= function(id){
 				ctrl.state.go('admin');
 			}
 		})
-	ctrl.state.go('admin', {}, {reload: true});
+	// ctrl.state.reload();
+	// ctrl.state.go('admin', {}, {reload: true});
+}
+
+AdminCtrl.prototype.reload= function() {
+	ctrl.state.reload();
 }

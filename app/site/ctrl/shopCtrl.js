@@ -30,6 +30,11 @@ function ShopCtrl($state, $scope, orderSrv, api) {
     });
 
     jQuery('.collapse').collapse();
+
+    if(ctrl.products.length > 0 ){
+        ctrl.is_products = true;
+    }
+    
 }
 
 //Cart functions//
@@ -91,17 +96,4 @@ ShopCtrl.prototype.submitOrder = function(){
    console.log(ctrl.order);
     ctrl.orderSrv.addOrder(ctrl.order);
     //ctrl.$state.go('final');
-}
-
-// Carousel Front //
-
-ShopCtrl.prototype.next = function() {
-    var ctrl = this;    
-    ctrl.index++;
-}
-
-/*TODO #4: clicking previous should show the previous image*/
-ShopCtrl.prototype.previous = function() {
-    var ctrl = this;
-    ctrl.index--;
 }
